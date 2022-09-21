@@ -51,7 +51,7 @@ public class OrderService {
 //                .toList();
 
         //call inventory service before placing an order
-        //if product is in stock
+        //to check if product is in stock
         InventoryResponse inventoryResponse[] = webClient.get()
                 .uri("http://localhost:8082/api/inventory",
                         uriBuilder -> uriBuilder.queryParam("skucode" ,skucodes).build())
