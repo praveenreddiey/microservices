@@ -20,7 +20,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
 
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
     public void placeOrder(OrderRequest orderRequest){
         Order order = new Order();
@@ -52,14 +52,14 @@ public class OrderService {
 
         //call inventory service before placing an order
         //to check if product is in stock
-        InventoryResponse inventoryResponse[] = webClient.get()
-                .uri("http://localhost:8082/api/inventory",
+        InventoryResponse inventoryResponse[] = webClientBuilder.build().get()
+                .uri("http://inventory-service/api/inventory",
                         uriBuilder -> uriBuilder.queryParam("skucode" ,skucodes).build())
                 .retrieve()
                 .bodyToMono(InventoryResponse[].class)
                 .block();
 
-        boolean allProductsInStock = Arrays.stream(inventoryResponse).allMatch(inventoryResponse1 -> inventoryResponse1.isInStock());
+        boolean allProductsInStock = Arrays.stream(inventoryResponse).allMatch(InventoryResponse::isInStock);
 
 
         if(allProductsInStock){
