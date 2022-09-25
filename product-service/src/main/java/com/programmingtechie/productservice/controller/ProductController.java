@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.Path;
 import java.util.List;
 
 @RestController
@@ -26,6 +27,11 @@ public class ProductController {
     @ResponseStatus(HttpStatus.OK)
     public List<ProductResponse> getAllProducts(){
         return ps.getAllProducts();
+    }
+
+    @GetMapping("/{id}")
+    public ProductResponse getProductById(@PathVariable String id){
+        return ps.getProduct(id);
     }
 
 }

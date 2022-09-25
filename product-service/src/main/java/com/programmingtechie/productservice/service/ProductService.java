@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -38,7 +39,19 @@ public class ProductService {
                     .build();
         }).toList();
         return productResponses;
-
-
     }
+    public ProductResponse getProduct(String id){
+        Optional<Product> product = ps.findById(id);
+        if(product.isPresent()){
+            return ProductResponse.builder()
+                    .name(product.get().getName())
+                    .price(product.get().getPrice())
+                    .description(product.get().getDescription())
+                    .id(product.get().getId())
+                    .build();
+        }else{
+            throw new RuntimeException("product is not available");
+        }
+    }
+
 }
