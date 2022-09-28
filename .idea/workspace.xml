@@ -5,22 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edeb4a4b-aece-496b-9614-20bdc56f0b93" name="Changes" comment="implemented web client and able to communicate with two modules">
-      <change afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/programming/techie/apigateway/ApiGatewayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/programming/techie/apigateway/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-server/src/main/java/com/programming/techie/apigateway/discoveryserver/config/PasswordEncodingConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-server/src/main/java/com/programming/techie/apigateway/discoveryserver/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/java/com/programming/techie/discoveryserver/DiscoveryServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/java/com/programming/techie/apigateway/discoveryserver/DiscoveryServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/target/classes/com/programming/techie/discoveryserver/DiscoveryServerApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventoryservice/InventoryServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/java/com/programmingtechie/inventoryservice/InventoryServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory-service/target/classes/com/programmingtechie/inventoryservice/InventoryServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/target/classes/com/programmingtechie/inventoryservice/InventoryServiceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/programmingtechie/orderservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/programmingtechie/productservice/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/programmingtechie/productservice/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/programmingtechie/productservice/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/programmingtechie/productservice/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/programmingtechie/productservice/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/programmingtechie/productservice/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/classes/com/programmingtechie/orderservice/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/classes/com/programmingtechie/orderservice/controller/OrderController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/classes/application.properties" afterDir="false" />
     </list>
@@ -72,7 +73,8 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/prave/OneDrive/Documents/microservices-new/api-gateway&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -90,7 +92,7 @@
       <command value="mvn clean verify" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ApiGatewayApplication">
+  <component name="RunManager" selected="Application.com.programming.techie.apigateway.discoveryserver.DiscoveryServerApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.programming.techie.apigateway.ApiGatewayApplication" />
       <module name="api-gateway" />
@@ -165,11 +167,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ApiGatewayApplication" />
-        <item itemvalue="Application.ProductServiceApplication" />
         <item itemvalue="Application.com.programming.techie.apigateway.discoveryserver.DiscoveryServerApplication" />
+        <item itemvalue="Application.ApiGatewayApplication" />
         <item itemvalue="Application.InventoryServiceApplication" />
         <item itemvalue="Application.OrderServiceApplication" />
+        <item itemvalue="Application.ProductServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -218,5 +220,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implemented web client and able to communicate with two modules" />
     <option name="LAST_COMMIT_MESSAGE" value="implemented web client and able to communicate with two modules" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
