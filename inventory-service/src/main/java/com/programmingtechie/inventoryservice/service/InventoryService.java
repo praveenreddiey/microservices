@@ -24,7 +24,7 @@ public class InventoryService {
     public  List<InventoryResponse> isInStock(List<String> skucode){
         log.info("wait started");
         try {
-            Thread.sleep(10000);
+            Thread.sleep(3000);
         }catch(Exception e){
             e.printStackTrace();
         }

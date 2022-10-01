@@ -7,6 +7,8 @@ import com.programmingtechie.orderservice.model.Order;
 import com.programmingtechie.orderservice.model.OrderedItemsList;
 import com.programmingtechie.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.sleuth.Span;
+import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -21,6 +23,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
 
     private final WebClient.Builder webClientBuilder;
+    private final Tracer tracer;
 
     public String placeOrder(OrderRequest orderRequest){
         Order order = new Order();
@@ -50,24 +53,30 @@ public class OrderService {
 //                .stream().map(OrderedItemsList::getSkucode)
 //                .toList();
 
-        //call inventory service before placing an order
-        //to check if product is in stock
-        InventoryResponse inventoryResponse[] = webClientBuilder.build().get()
-                .uri("http://inventory-service/api/inventory",
-                        uriBuilder -> uriBuilder.queryParam("skucode" ,skucodes).build())
-                .retrieve()
-                .bodyToMono(InventoryResponse[].class)
-                .block();
+        Span inventoryServiceLookup = tracer.nextSpan().name("InventoryServiceLookup");
+        try(final Tracer.SpanInScope spanInScope = tracer.withSpan(inventoryServiceLookup.start())){
+            //call inventory service before placing an order
+            //to check if product is in stock
+            InventoryResponse inventoryResponse[] = webClientBuilder.build().get()
+                    .uri("http://inventory-service/api/inventory",
+                            uriBuilder -> uriBuilder.queryParam("skucode" ,skucodes).build())
+                    .retrieve()
+                    .bodyToMono(InventoryResponse[].class)
+                    .block();
 
-        boolean allProductsInStock = Arrays.stream(inventoryResponse).allMatch(InventoryResponse::isInStock);
+            boolean allProductsInStock = Arrays.stream(inventoryResponse).allMatch(InventoryResponse::isInStock);
 
 
-        if(allProductsInStock){
-            orderRepository.save(order);
-            return "Order placed succesfully";
-        }else{
-            throw new IllegalArgumentException("product is not in stock, please try again later");
+            if(allProductsInStock){
+                orderRepository.save(order);
+                return "Order placed succesfully";
+            }else{
+                throw new IllegalArgumentException("product is not in stock, please try again later");
+            }
+        }finally {
+            inventoryServiceLookup.end();
         }
+
 
     }
     private OrderedItemsList mapDTOtOEntity(OrderedItemsListDTO orderedItemsListDTO){
